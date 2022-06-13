@@ -9,7 +9,9 @@ export default function useDebounce(value, delay) {
 
   useEffect(
     () => {
-        setIsPending(true);
+        if (!isPending) {
+            setIsPending(true);
+        }
       // Выставить debouncedValue равным value (переданное значение) и убрать флажок загрузки
       // после заданной задержки
         const handler = setTimeout(() => {
